@@ -225,12 +225,17 @@
     <Compile Include="Migrations\201701231650239_LeaguetoMatchOneToMany.Designer.cs">
       <DependentUpon>201701231650239_LeaguetoMatchOneToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701241627167_MatchToTeamManyToMAny.cs" />
+    <Compile Include="Migrations\201701241627167_MatchToTeamManyToMAny.Designer.cs">
+      <DependentUpon>201701241627167_MatchToTeamManyToMAny.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\League.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\MatchTeam.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701231650239_LeaguetoMatchOneToMany.resx">
       <DependentUpon>201701231650239_LeaguetoMatchOneToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701241627167_MatchToTeamManyToMAny.resx">
+      <DependentUpon>201701241627167_MatchToTeamManyToMAny.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

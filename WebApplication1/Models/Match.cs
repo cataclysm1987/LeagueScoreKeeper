@@ -11,5 +11,8 @@ namespace WebApplication1.Models
         public string MatchName { get; set; }
 
         public virtual League League { get; set; }
+
+        //Many to Many Match with Team
+        public virtual ICollection<MatchTeam> MatchTeams { get; set; }
     }
 }
