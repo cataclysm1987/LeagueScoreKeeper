@@ -17,8 +17,13 @@ namespace WebApplication1.Models
         }
 
         [Key]
+        [Display(Name = "League ID")]
         public int LeagueId { get; set; }
+        [Display(Name = "League Name")]
         public string Name { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 
 namespace WebApplication1.Models
@@ -14,6 +15,7 @@ namespace WebApplication1.Models
 
         public int TeamId { get; set; }
         //Update StudentName to TeamName, add new migration and run seed method.
+        [Display(Name = "Team Name")]
         public string TeamName { get; set; }
 
         public virtual League League { get; set; }

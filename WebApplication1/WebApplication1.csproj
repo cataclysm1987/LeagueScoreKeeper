@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201701241627167_MatchToTeamManyToMAny.Designer.cs">
       <DependentUpon>201701241627167_MatchToTeamManyToMAny.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701242002464_UpdateColumnNamesInLeagues.cs" />
+    <Compile Include="Migrations\201701242002464_UpdateColumnNamesInLeagues.Designer.cs">
+      <DependentUpon>201701242002464_UpdateColumnNamesInLeagues.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -346,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701241627167_MatchToTeamManyToMAny.resx">
       <DependentUpon>201701241627167_MatchToTeamManyToMAny.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701242002464_UpdateColumnNamesInLeagues.resx">
+      <DependentUpon>201701242002464_UpdateColumnNamesInLeagues.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
