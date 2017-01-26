@@ -28,12 +28,14 @@ namespace WebApplication1.Controllers
             return View(db.Leagues.ToList().Where(u => u.ApplicationUser_Id == userId));
         }
 
+        [Authorize]
         public ViewResult Add()
         {
             return View();
         }
 
         // GET: Leagues/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -49,6 +51,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Leagues/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -73,6 +76,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Leagues/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -104,6 +108,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Leagues/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

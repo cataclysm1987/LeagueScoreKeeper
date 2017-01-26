@@ -10,18 +10,18 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class TeamsController : Controller
+    public class MatchesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Teams
+        // GET: Matches
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.Teams.ToList());
+            return View(db.Matches.ToList());
         }
 
-        // GET: Teams/Details/5
+        // GET: Matches/Details/5
         [Authorize]
         public ActionResult Details(int? id)
         {
@@ -29,39 +29,39 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Team team = db.Teams.Find(id);
-            if (team == null)
+            Match match = db.Matches.Find(id);
+            if (match == null)
             {
                 return HttpNotFound();
             }
-            return View(team);
+            return View(match);
         }
 
-        // GET: Teams/Create
+        // GET: Matches/Create
         [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Teams/Create
+        // POST: Matches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TeamId,TeamName")] Team team)
+        public ActionResult Create([Bind(Include = "MatchId,MatchName")] Match match)
         {
             if (ModelState.IsValid)
             {
-                db.Teams.Add(team);
+                db.Matches.Add(match);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(team);
+            return View(match);
         }
 
-        // GET: Teams/Edit/5
+        // GET: Matches/Edit/5
         [Authorize]
         public ActionResult Edit(int? id)
         {
@@ -69,31 +69,31 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Team team = db.Teams.Find(id);
-            if (team == null)
+            Match match = db.Matches.Find(id);
+            if (match == null)
             {
                 return HttpNotFound();
             }
-            return View(team);
+            return View(match);
         }
 
-        // POST: Teams/Edit/5
+        // POST: Matches/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TeamId,TeamName")] Team team)
+        public ActionResult Edit([Bind(Include = "MatchId,MatchName")] Match match)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(team).State = EntityState.Modified;
+                db.Entry(match).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(team);
+            return View(match);
         }
 
-        // GET: Teams/Delete/5
+        // GET: Matches/Delete/5
         [Authorize]
         public ActionResult Delete(int? id)
         {
@@ -101,21 +101,21 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Team team = db.Teams.Find(id);
-            if (team == null)
+            Match match = db.Matches.Find(id);
+            if (match == null)
             {
                 return HttpNotFound();
             }
-            return View(team);
+            return View(match);
         }
 
-        // POST: Teams/Delete/5
+        // POST: Matches/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Team team = db.Teams.Find(id);
-            db.Teams.Remove(team);
+            Match match = db.Matches.Find(id);
+            db.Matches.Remove(match);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
