@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace WebApplication1.Models
 
     public class League
     {
+
         public League()
         {
             var Teams = new List<Team>();
@@ -27,6 +29,9 @@ namespace WebApplication1.Models
         public DateTime StartDate { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUser_Id;
+
 
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<Match> Matches { get; set; }

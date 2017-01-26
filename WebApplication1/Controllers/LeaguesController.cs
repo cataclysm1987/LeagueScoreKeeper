@@ -4,9 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Microsoft.Ajax.Utilities;
 using WebApplication1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace WebApplication1.Controllers
 {
@@ -15,9 +19,13 @@ namespace WebApplication1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Leagues
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.Leagues.ToList());
+
+            var userId = User.Identity.GetUserId<string>();
+            //Need to add functionality - if no user login, redirect to login page, if user is logged in, match aspnet user id to leagues displayed.
+            return View(db.Leagues.ToList().Where(u => u.ApplicationUser_Id == userId));
         }
 
         public ViewResult Add()
@@ -51,10 +59,11 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LeagueId,Name,StartDate")] League league)
+        public ActionResult Create([Bind(Include = "LeagueId,Name,StartDate,ApplicationUser_Id")] League league)
         {
             if (ModelState.IsValid)
             {
+                league.ApplicationUser_Id = User.Identity.GetUserId<string>();
                 db.Leagues.Add(league);
                 db.SaveChanges();
                 return RedirectToAction("Index");

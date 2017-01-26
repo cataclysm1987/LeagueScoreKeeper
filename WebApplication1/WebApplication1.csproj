@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201701242002464_UpdateColumnNamesInLeagues.Designer.cs">
       <DependentUpon>201701242002464_UpdateColumnNamesInLeagues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701251838412_AddForeignKeyToLeagueModel.cs" />
+    <Compile Include="Migrations\201701251838412_AddForeignKeyToLeagueModel.Designer.cs">
+      <DependentUpon>201701251838412_AddForeignKeyToLeagueModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -354,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701242002464_UpdateColumnNamesInLeagues.resx">
       <DependentUpon>201701242002464_UpdateColumnNamesInLeagues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701251838412_AddForeignKeyToLeagueModel.resx">
+      <DependentUpon>201701251838412_AddForeignKeyToLeagueModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
