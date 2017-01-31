@@ -66,10 +66,12 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                league.ApplicationUser_Id = User.Identity.GetUserId<string>();
+                var userId = User.Identity.GetUserId<string>();
+                league.ApplicationUser_Id = userId;
                 db.Leagues.Add(league);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+                
             }
 
             return View(league);
